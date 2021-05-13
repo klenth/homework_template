@@ -440,63 +440,63 @@ main {
 
 @font-face {
     font-family: Lato;
-    src: url(/~kathy/font/Lato-Regular.ttf);
+    src: url(font/Lato-Regular.ttf);
     font-weight: 400;
 }
 
 @font-face {
     font-family: Lato;
-    src: url(/~kathy/font/Lato-Italic.ttf);
+    src: url(font/Lato-Italic.ttf);
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: Lato;
-    src: url(/~kathy/font/Lato-Bold.ttf);
+    src: url(font/Lato-Bold.ttf);
     font-weight: 700;
 }
 
 @font-face {
     font-family: Lato;
-    src: url(/~kathy/font/Lato-BoldItalic.ttf);
+    src: url(font/Lato-BoldItalic.ttf);
     font-weight: 700;
     font-style: italic;
 }
 
 @font-face {
     font-family: Lato;
-    src: url(/~kathy/font/Lato-Black.ttf);
+    src: url(font/Lato-Black.ttf);
     font-weight: 900;
 }
 
 @font-face {
     font-family: Lato;
-    src: url(/~kathy/font/Lato-BlackItalic.ttf);
+    src: url(font/Lato-BlackItalic.ttf);
     font-weight: 900;
     font-style: italic;
 }
 
 @font-face {
     font-family: Hack;
-    src: url(/~kathy/font/Hack-Regular.ttf);
+    src: url(font/Hack-Regular.ttf);
 }
 
 @font-face {
     font-family: Hack;
-    src: url(/~kathy/font/Hack-Bold.ttf);
+    src: url(font/Hack-Bold.ttf);
     font-weight: bold;
 }
 
 @font-face {
     font-family: Hack;
-    src: url(/~kathy/font/Hack-Italic.ttf);
+    src: url(font/Hack-Italic.ttf);
     font-style: italic;
 }
 
 @font-face {
     font-family: Hack;
-    src: url(/~kathy/font/Hack-BoldItalic.ttf);
+    src: url(font/Hack-BoldItalic.ttf);
     font-weight: bold;
     font-style: italic;
 }
