@@ -76,7 +76,7 @@
     // Since some problems don't have links, we need to keep track of the mapping between problem index and link index!
     const problem_link_index_map = [ 0 ];
     
-    let link_index = 0;
+    let link_index = 1;
     
     for (let problem of document.querySelectorAll(".problems > .problem")) {
         problem_link_index_map.push(link_index);
@@ -101,16 +101,16 @@
         if (new_current_problem === -1 && problems.length > 0)
             new_current_problem = 0;
         
+        const tabs = document.querySelectorAll("nav ul li");
         if (new_current_problem !== current_problem) {
             if (current_tab !== null)
                 current_tab.classList.remove("current");
             if (new_current_problem !== -1) {
-                const tab_index = problem_link_index_map[new_current_problem];
-                if (tab_index < 0) {
-                    current_tab = null;
-                    return;
+                let tab_index = problem_link_index_map[new_current_problem];
+                if (tab_index >= tabs.length) {
+                    tab_index = tabs.length - 1;
                 }
-                current_tab = document.querySelectorAll("nav ul li")[tab_index];
+                current_tab = tabs[tab_index];
                 current_tab.classList.add("current");
             } else
                 current_tab = null;
