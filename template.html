@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" class="fancy">
+    <head>
+        <meta charset="utf-8">
+        <title>FILL IN: TITLE OF ASSIGNMENT</title>
+        <link rel="stylesheet" href="homework.css">
+    </head>
+
+    <body>
+        
+        <!-- Delete the <nav> section if you don't want the sidebar (index of problems) -->
+        <nav>
+            <ul class="problem-links"></ul>
+            <div class="icon"></div>
+            <div class="plain-link"><a href="?plain">Printable version</a></div>
+        </nav>
+        
+        <main class="justified">
+            <div class="assignment-info">
+                <h1>FILL IN: TITLE OF ASSIGNMENT</h1>
+
+                <p>
+                    FILL IN: GENERAL INSTRUCTIONS FOR ASSIGNMENT
+                </p>
+                
+                <p>
+                    If you don't want a display of the total number of points for the assignment, delete the <code>&lt;div class="total points"&gt;</code> below.
+                </p>
+                <div class="total points"></div>
+            </div>
+        
+            <div class="problems">
+                <!--
+                    Each problem should be one <div class="problem">...</div>
+                    
+                    - Inside the div, <ol class="parts">...</ol> will give an ordered list of parts (right now this just
+                      means it uses a, b, c numbering instead of 1, 2, 3).
+                      
+                    - Use a div with the "points" class to show a number of points on the left side, e.g.
+                      <div class="points">4</div>
+                      for something that's worth 4 points.
+                      
+                    - If you include a <div class="total points"></div> inside the problem, it will add a display for
+                      the problem's total points at the bottom. (You can put in a number of points yourself, or leave it
+                      blank to have the JavaScript autocompute it by summing all the <div class="points">s.)
+                      
+                    If you want to omit the number (which will also cause it not to be listed in the sidebar) use the no-number class:
+                    <div class="problem no-number">
+                -->
+                <div class="problem">
+                    <p>FILL IN: PROBLEM PROMPT</p>
+                    
+                    <p>This is a sample problem prompt. It has some subparts, each with its own number of points:</p>
+                    
+                    <ol class="parts">
+                        <li>
+                            <div class="points">8</div> This part is worth 8 points.
+                        </li>
+                        <li>
+                            <div class="points">4</div> This one is worth 4 points.
+                        </li>
+                        <li>
+                            This one doesn't include points.
+                        </li>
+                    </ol>
+                    
+                    <p>The points display below is autocomputed from the points listed above. I could override this by putting something inside the <code>&lt;div class="total points"&gt;</code> tag.</p>
+                    
+                    <div class="total points"></div>
+                </div>
+                
+            </div>
+        </main>
+                
+        <script src="homework.js"></script>
+    </body>
+</html>

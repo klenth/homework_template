@@ -1,0 +1,503 @@
+.hidden {
+    display: none;
+}
+
+.no-nav {
+    --sidebar-width: 0;
+}
+
+.no-nav nav {
+    display: none;
+}
+
+.indented {
+    margin-left: 64px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.centered-block {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.justified {
+    text-align: justify;
+}
+
+.scrollable {
+    overflow: auto;
+}
+
+.h-padded {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.v-padded {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+ol.parts {
+    list-style-type: lower-alpha;
+}
+
+ol.subparts {
+    list-style-type: lower-roman;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul ul {
+    list-style-type: disc;
+}
+
+table {
+    border-collapse: collapse;
+    border-width: 2px;
+}
+
+th {
+    color: white;
+    background-color: var(--color-sky);
+}
+
+th:first-child {
+    border-radius: 2px 0 0 2px;
+}
+
+th:last-child {
+    border-radius: 0 2px 2px 0;
+}
+
+tr.border-below {
+    border-bottom: solid;
+}
+
+tr.border-right td, tr.border-right th {
+    border-right: solid;
+}
+
+table td, table th {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+figure {
+    border: 2px solid var(--color-sky);
+    padding: 16px;
+}
+
+figcaption {
+    font-style: italic;
+}
+
+html {
+    scroll-behavior: smooth;
+    
+    font-family: 'Lato', sans-serif;
+    
+    --color-night: #211551;
+    --color-copper: #9D581F;
+    --color-snow: white;
+    --color-flint: #101820;
+    --color-birch: #F1F1DE;
+    --color-thistle: #8252C7;
+    --color-sky: #00B5E2;
+    --color-offwhite: #f8f8ff;
+    
+    --color-thistle-desaturated: #8E66C7;
+    
+    --sidebar-width: 200px;
+}
+
+main li {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.icon {
+    position: absolute;
+    background-image: url(/~kathy/cs.w.twotone.transparent.png);
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 32px;
+    right: 32px;
+    margin: auto;
+    bottom: 40px;
+    background-position: bottom;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-thistle);
+}
+
+a:visited {
+    color: var(--color-thistle-desaturated);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media screen {
+    html.fancy {
+        background-color: var(--color-night);
+    }
+    
+    .fancy nav {
+        display: block;
+    }
+    
+    .fancy .assignment-info {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 auto 128px;
+        max-width: 1200px;
+        background-color: var(--color-offwhite);
+        padding: 64px;
+        padding-top: 128px;
+        overflow: hidden;
+        border-bottom: 2px solid var(--color-sky);
+        font-size: 1.2rem;
+    }
+
+    .fancy .assignment-info h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        font-size: 3rem;
+        color: var(--color-snow);
+        padding: 0.5rem 4rem;
+        z-index: 1;
+    }
+
+    .fancy .assignment-info h1:before {
+        content: ' ';
+        position: absolute;
+        background-color: var(--color-sky);
+        left: -32px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: skewX(-15deg);
+        border-radius: 0 0 4px 0;
+        display: initial;
+    }
+
+    .fancy main {
+        position: absolute;
+        left: var(--sidebar-width);
+        right: 0;
+        padding: 32px;
+        padding-bottom: 50vh;
+        isolation: isolate;
+    }
+
+    .fancy nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--sidebar-width);
+        background-color: var(--color-offwhite);
+        isolation: isolate;
+        overflow-y: auto;
+        z-index: 1;
+        transition: left 0.2s;
+    }
+
+    .fancy nav ul {
+        margin-top: 100px;
+        position: relative;
+        list-style-type: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 1;
+        background-color: inherit;
+    }
+
+    .fancy nav ul li {
+        position: relative;
+        margin: 16px 0;
+        isolation: isolate;
+        left: 0;
+        transition: left 0.2s;
+    }
+
+    .fancy nav ul li:before {
+        content: ' ';
+        position: absolute;
+        background-color: var(--color-thistle);
+        left: 0;
+        right: -12px;
+        top: 0;
+        bottom: 0;
+        transform: skewX(-15deg);
+        border-radius: 4px 0 0 4px;
+        transition: background-color 0.2s;
+    }
+
+    .fancy nav ul li:hover:before, nav ul li.current:before {
+        background-color: var(--color-sky);
+        border-color: var(--color-sky);
+    }
+
+    .fancy nav ul li.current {
+        left: 32px;
+    }
+
+    .fancy nav ul li a, nav ul li a:visited {
+        position: relative;
+        display: block;
+        padding: 16px 16px;
+        position: relative;
+        text-decoration: none !important;
+        color: var(--color-snow);
+        font-weight: bold;
+        z-index: 1;
+        user-select: none;
+    }
+    
+    .fancy nav .plain-link {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background: inherit;
+        border-radius: 10px;
+    }
+
+    .fancy .problems {
+        counter-reset: problem-number;
+    }
+    
+    .fancy .problem {
+        overflow-x: hidden;
+        position: relative;
+        padding: 24px;
+        padding-left: 56px;
+        padding-top: 80px;
+        left: 0;
+        right: 0;
+        max-width: 1000px;
+        margin: 64px auto;
+        background-color: var(--color-offwhite);
+        border-bottom: 2px solid var(--color-sky);
+        counter-increment: problem-number;
+    }
+    
+    .fancy .problem.no-number {
+        padding-top: 24px;
+    }
+
+    .fancy .problem:not(.no-number):before {
+        position: absolute;
+        top: 0;
+        left: -16px;
+        width: 112px;
+        height: 64px;
+        content: " ";
+        background-color: var(--color-sky);
+        transform: skewX(-15deg);
+        border-radius: 0 0 4px 0;
+    }
+
+    .fancy .problem:not(.no-number):after {
+        position: absolute;
+        top: calc((64px - 2rem) / 2);
+        left: 0;
+        width: 96px;
+        height: 64px;
+        text-align: center;
+        content: counter(problem-number);
+        color: var(--color-snow);
+        font-weight: 900;
+        font-size: 2rem;
+    }
+
+    .fancy .points {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+        width: 24px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        cursor: default;
+        user-select: none;
+        font-style: initial;
+    }
+
+    .fancy .total.points {
+        display: block;
+        left: initial;
+        padding: 8px 16px;
+        width: initial;
+        right: 0;
+        bottom: 0;
+    }
+
+    .fancy .points:before {
+        position: absolute;
+        left: -16px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: var(--color-sky);
+        border-radius: 0 2px 2px 0;
+        transform: skewX(-15deg);
+        content: ' ';
+    }
+    
+    .fancy .points:after {
+        display: none;
+    }
+
+    .fancy .total.points:before {
+        left: 0;
+        right: -16px;
+        border-radius: 2px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 768px),
+        screen and (max-aspect-ratio: 1.0) {
+    .fancy nav {
+        display: none;
+    }
+
+    .fancy main {
+        left: 0;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .fancy nav .icon {
+        display: none;
+    }
+}
+
+.scrollable > * {
+    max-width: 100%;
+}
+
+html {
+    background-color: initial;
+}
+
+nav {
+    display: none;
+}
+
+main {
+    padding: 0 16px;
+}
+
+.assignment-info {
+    padding-bottom: 1rem;
+}
+
+.assignment-info h1 {
+    font-size: 2rem;
+}
+
+.problem {
+    position: relative;
+    padding-top: 2rem;
+    margin: 2rem 0;
+}
+
+.problem .problem-number {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.points {
+    display: inline-block;
+    font-style: italic;
+}
+
+.total.points {
+    display: none;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/~kathy/font/Lato-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/~kathy/font/Lato-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/~kathy/font/Lato-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/~kathy/font/Lato-BoldItalic.ttf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/~kathy/font/Lato-Black.ttf);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/~kathy/font/Lato-BlackItalic.ttf);
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Hack;
+    src: url(/~kathy/font/Hack-Regular.ttf);
+}
+
+@font-face {
+    font-family: Hack;
+    src: url(/~kathy/font/Hack-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Hack;
+    src: url(/~kathy/font/Hack-Italic.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Hack;
+    src: url(/~kathy/font/Hack-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
