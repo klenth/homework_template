@@ -300,6 +300,7 @@ a:hover {
         counter-increment: problem-number;
     }
     
+    /*
     .fancy .problem.no-number {
         padding-top: 24px;
     }
@@ -327,6 +328,35 @@ a:hover {
         color: var(--color-snow);
         font-weight: 900;
         font-size: 2rem;
+    }
+    */
+    
+    .fancy .problem > .title {
+        line-height: 64px;
+        position: absolute;
+        top: 0;
+        left: 32px;
+        width: fit-content;
+        height: 64px;
+        color: white;
+        isolation: isolate;
+        z-index: 1;
+        font-size: 2rem;
+        font-weight: 900;
+        user-select: none;
+    }
+    
+    .fancy .problem > .title:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -48px;
+        right: -32px;
+        background-color: var(--color-sky);
+        transform: skewX(-15deg);
+        border-radius: 0 0 4px 0;
+        z-index: -1;
     }
 
     .fancy .points {
@@ -424,7 +454,7 @@ main {
     margin: 2rem 0;
 }
 
-.problem .problem-number {
+.problem .title {
     font-weight: bold;
     font-size: 1.2rem;
 }

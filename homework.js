@@ -11,6 +11,22 @@
         return false;
     }
     
+    function slugify(s) {
+        let slug = "";
+        for (let i = 0; i < s.length; ++i) {
+            const c = s[i];
+            if ("A" <= c && c <= "Z"
+                    || "a" <= c && c <= "z"
+                    || "0" <= c && c <= "9"
+                    || c === "_" || c === "-")
+                slug += c;
+            else
+                slug += "_";
+        }
+        
+        return slug;
+    }
+    
     const plain_mode = isPlainMode();
     
     if (plain_mode)
@@ -18,28 +34,56 @@
     
     // Insert an anchor before each problem, and if there is a problem links ul,
     // add a link to it
-    const problems = document.querySelectorAll(".problem");
+    const problem_titles = document.querySelectorAll(".problems > .problem > .title");
     const nav_ul = document.querySelector("ul.problem-links");
-    for (let i = 0; i < problems.length; ++i) {
-        const problem_number = i + 1;
-        const anchor_name = "p" + problem_number;
-        const anchor = document.createElement("a");
-        anchor.setAttribute("name", anchor_name);
-        problems[i].parentElement.insertBefore(anchor, problems[i]);
+    let problem_number = 0;
+    for (let i = 0; i < problem_titles.length; ++i) {
+        const problem_title = problem_titles[i];
+        let link_text = undefined;
+        let anchor_name = undefined;
         
-        if (nav_ul) {
-            const li = document.createElement("li");
-            const link = document.createElement("a");
-            link.setAttribute("href", "#p" + problem_number);
-            const text = document.createTextNode("Problem " + problem_number);
-            link.appendChild(text);
-            li.appendChild(link);
-            nav_ul.appendChild(li);
+        if (problem_title.classList.contains("auto-number")) {
+            ++problem_number;
+            link_text = "Problem " + problem_number;
+            anchor_name = "p" + problem_number;
+            problem_title.innerText = "" + problem_number;
+        } else {
+            link_text = problem_title.innerText.trim() || undefined;
+            anchor_name = slugify(link_text);
+        }
+        
+        if (link_text && anchor_name) {
+            const anchor = document.createElement("a");
+            anchor.setAttribute("name", anchor_name);
+            problem_title.parentElement.parentElement.insertBefore(anchor, problem_title.parentElement);
+        
+            if (nav_ul) {
+                const li = document.createElement("li");
+                const link = document.createElement("a");
+                link.setAttribute("href", "#" + anchor_name);
+                const text = document.createTextNode(link_text);
+                link.appendChild(text);
+                li.appendChild(link);
+                nav_ul.appendChild(li);
+            }
         }
     }
     
     // Watch document scrolls and highlight the link to the current
     // problem
+    const problems = document.querySelectorAll(".problems > .problem");
+    
+    // Since some problems don't have links, we need to keep track of the mapping between problem index and link index!
+    const problem_link_index_map = [ 0 ];
+    
+    let link_index = 0;
+    
+    for (let problem of document.querySelectorAll(".problems > .problem")) {
+        problem_link_index_map.push(link_index);
+        if (problem.querySelector(".title"))
+            ++link_index;
+    }
+    
     let current_tab = null;
     let current_problem = -1;
     
@@ -61,7 +105,12 @@
             if (current_tab !== null)
                 current_tab.classList.remove("current");
             if (new_current_problem !== -1) {
-                current_tab = document.querySelectorAll("nav ul li")[new_current_problem];
+                const tab_index = problem_link_index_map[new_current_problem];
+                if (tab_index < 0) {
+                    current_tab = null;
+                    return;
+                }
+                current_tab = document.querySelectorAll("nav ul li")[tab_index];
                 current_tab.classList.add("current");
             } else
                 current_tab = null;
@@ -112,12 +161,11 @@
 
     if (plain_mode) {
         let problem_counter = 1;
-        for (let problem of document.querySelectorAll(".problem:not(.no-number)")) {
-            const problem_number_display = document.createElement("div");
-            problem_number_display.classList.add("problem-number");
-            problem_number_display.innerText = "Problem " + problem_counter;
-            problem.insertBefore(problem_number_display, problem.firstChild);
-            ++problem_counter;
+        for (let problem_title of document.querySelectorAll(".problems > .problem > .title")) {
+            if (problem_title.classList.contains("auto-number")) {
+                problem_title.innerText = "Problem " + problem_counter;
+                ++problem_counter;
+            }
         }
         
         for (let point of document.querySelectorAll(".problem .points:not(.total)")) {
