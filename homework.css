@@ -358,6 +358,10 @@ a:hover {
         border-radius: 0 0 4px 0;
         z-index: -1;
     }
+    
+    .fancy .problem > :first-child:not(.title) {
+        margin-top: -40px;
+    }
 
     .fancy .points {
         position: absolute;
