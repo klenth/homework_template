@@ -232,6 +232,7 @@ a:hover {
     .fancy nav ul li {
         position: relative;
         margin: 16px 0;
+        margin-right: 16px;
         isolation: isolate;
         left: 0;
         transition: left 0.2s;
@@ -242,7 +243,7 @@ a:hover {
         position: absolute;
         background-color: var(--color-thistle);
         left: 0;
-        right: -12px;
+        right: -28px;
         top: 0;
         bottom: 0;
         transform: skewX(-15deg);
