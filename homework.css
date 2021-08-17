@@ -125,7 +125,7 @@ main li {
 
 .icon {
     position: absolute;
-    background-image: url(/~kathy/cs.w.twotone.transparent.png);
+    background-image: url(cs.w.twotone.transparent.png);
     height: 180px;
     background-size: contain;
     background-repeat: no-repeat;
