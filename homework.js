@@ -61,6 +61,7 @@
                 const li = document.createElement("li");
                 const link = document.createElement("a");
                 link.setAttribute("href", "#" + anchor_name);
+                link.setAttribute("target", "_self");
                 const text = document.createTextNode(link_text);
                 link.appendChild(text);
                 li.appendChild(link);
