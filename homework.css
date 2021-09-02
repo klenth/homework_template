@@ -115,6 +115,16 @@ html {
     
     --color-thistle-desaturated: #8E66C7;
     
+    --color-for-backdrop: var(--color-night);
+    --color-for-content-background: var(--color-offwhite);
+    --color-for-headers: var(--color-sky);
+    --color-for-chrome: var(--color-sky);
+    --color-for-nav-links: var(--color-snow);
+    --color-for-nav-tabs: var(--color-thistle);
+    --color-for-nav-tabs-selected: var(--color-sky);
+    --color-for-links: var(--color-thistle);
+    --color-for-links-visited: var(--color-thistle-desaturated);
+    
     --sidebar-width: 200px;
 }
 
@@ -138,11 +148,11 @@ main li {
 
 a {
     text-decoration: none;
-    color: var(--color-thistle);
+    color: var(--color-for-links);
 }
 
 a:visited {
-    color: var(--color-thistle-desaturated);
+    color: var(--color-for-links-visited);
 }
 
 a:hover {
@@ -151,7 +161,7 @@ a:hover {
 
 @media screen {
     html.fancy {
-        background-color: var(--color-night);
+        background-color: var(--color-for-backdrop);
     }
     
     .fancy nav {
@@ -164,11 +174,11 @@ a:hover {
         right: 0;
         margin: 0 auto 128px;
         max-width: 1200px;
-        background-color: var(--color-offwhite);
+        background-color: var(--color-for-content-background);
         padding: 64px;
         padding-top: 128px;
         overflow: hidden;
-        border-bottom: 2px solid var(--color-sky);
+        border-bottom: 2px solid var(--color-for-chrome);
         font-size: 1.2rem;
     }
 
@@ -186,7 +196,7 @@ a:hover {
     .fancy .assignment-info h1:before {
         content: ' ';
         position: absolute;
-        background-color: var(--color-sky);
+        background-color: var(--color-for-headers);
         left: -32px;
         top: 0;
         right: 0;
@@ -212,7 +222,7 @@ a:hover {
         top: 0;
         bottom: 0;
         width: var(--sidebar-width);
-        background-color: var(--color-offwhite);
+        background-color: var(--color-for-content-background);
         isolation: isolate;
         overflow-y: auto;
         z-index: 1;
@@ -241,7 +251,7 @@ a:hover {
     .fancy nav ul li:before {
         content: ' ';
         position: absolute;
-        background-color: var(--color-thistle);
+        background-color: var(--color-for-nav-tabs);
         left: 0;
         right: -28px;
         top: 0;
@@ -252,8 +262,8 @@ a:hover {
     }
 
     .fancy nav ul li:hover:before, nav ul li.current:before {
-        background-color: var(--color-sky);
-        border-color: var(--color-sky);
+        background-color: var(--color-for-nav-tabs-selected);
+        border-color: var(--color-for-nav-tabs-selected);
     }
 
     .fancy nav ul li.current {
@@ -266,7 +276,7 @@ a:hover {
         padding: 16px 16px;
         position: relative;
         text-decoration: none !important;
-        color: var(--color-snow);
+        color: var(--color-for-nav-links);
         font-weight: bold;
         z-index: 1;
         user-select: none;
@@ -287,7 +297,7 @@ a:hover {
     }
     
     .fancy .problem {
-        overflow-x: hidden;
+        overflow: hidden;
         position: relative;
         padding: 24px;
         padding-left: 56px;
@@ -296,41 +306,10 @@ a:hover {
         right: 0;
         max-width: 1000px;
         margin: 64px auto;
-        background-color: var(--color-offwhite);
-        border-bottom: 2px solid var(--color-sky);
+        background-color: var(--color-for-content-background);
+        border-bottom: 2px solid var(--color-for-chrome);
         counter-increment: problem-number;
     }
-    
-    /*
-    .fancy .problem.no-number {
-        padding-top: 24px;
-    }
-
-    .fancy .problem:not(.no-number):before {
-        position: absolute;
-        top: 0;
-        left: -16px;
-        width: 112px;
-        height: 64px;
-        content: " ";
-        background-color: var(--color-sky);
-        transform: skewX(-15deg);
-        border-radius: 0 0 4px 0;
-    }
-
-    .fancy .problem:not(.no-number):after {
-        position: absolute;
-        top: calc((64px - 2rem) / 2);
-        left: 0;
-        width: 96px;
-        height: 64px;
-        text-align: center;
-        content: counter(problem-number);
-        color: var(--color-snow);
-        font-weight: 900;
-        font-size: 2rem;
-    }
-    */
     
     .fancy .problem > .title {
         line-height: 64px;
@@ -354,7 +333,7 @@ a:hover {
         bottom: 0;
         left: -48px;
         right: -32px;
-        background-color: var(--color-sky);
+        background-color: var(--color-for-headers);
         transform: skewX(-15deg);
         border-radius: 0 0 4px 0;
         z-index: -1;
@@ -385,7 +364,7 @@ a:hover {
         padding: 8px 16px;
         width: initial;
         right: 0;
-        bottom: 0;
+        bottom: -1px;
     }
 
     .fancy .points:before {
@@ -395,7 +374,7 @@ a:hover {
         top: 0;
         bottom: 0;
         z-index: -1;
-        background-color: var(--color-sky);
+        background-color: var(--color-for-headers);
         border-radius: 0 2px 2px 0;
         transform: skewX(-15deg);
         content: ' ';
