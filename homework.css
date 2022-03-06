@@ -274,7 +274,6 @@ a:hover {
         position: relative;
         display: block;
         padding: 16px 16px;
-        position: relative;
         text-decoration: none !important;
         color: var(--color-for-nav-links);
         font-weight: bold;
@@ -392,7 +391,7 @@ a:hover {
 }
 
 @media screen and (max-width: 768px),
-        screen and (max-aspect-ratio: 1.0) {
+        screen and (max-aspect-ratio: 1/1) {
     .fancy nav {
         display: none;
     }
